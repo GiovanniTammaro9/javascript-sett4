@@ -23,3 +23,24 @@ function stampaRisultatoSottrazione(risultato) {
 }
 
 operazioneEseguiCallback(10, 7, stampaRisultatoSottrazione);
+
+//callback annidate 
+function somma(a, b, callback) {
+    let risultato3 = a + b;
+    console.log("il risultato della somma è:", risultato3);
+    callback(risultato3);
+}
+//seconda funzione che esegue una moltiplicazione sul risultato della somma
+function moltiplicazione(a, callback) {
+    let risultato3 = a * 2;
+    console.log("il risultato della moltiplicazione è :", risultato3);
+    callback(risultato3);
+}
+
+function stampaFinale(risultato3) {
+    console.log("il risultato finale è", risultato3);
+}
+
+somma(5, 5, function(risultatosomma) {
+    moltiplicazione(risultatosomma, stampaFinale);
+});
