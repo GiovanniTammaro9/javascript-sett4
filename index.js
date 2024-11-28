@@ -91,3 +91,25 @@ myFunction()
 .catch(error => {
     console.log(error);
 });
+
+//cayena di primise semplice
+function mynewFunction() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(5);
+        }, 1000);
+    });
+}
+
+mynewFunction()
+.then(result => {
+    console.log("numero iniziale:", result);
+    return result * 2;
+})
+.then(result => {
+    console.log("numero dopo la moltiplicazione:", result);
+    return result + 3;
+})
+.then(finalresult => {
+    console.log("numero finale:", finalresult);
+});
