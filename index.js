@@ -44,3 +44,16 @@ function stampaFinale(risultato3) {
 somma(5, 5, function(risultatosomma) {
     moltiplicazione(risultatosomma, stampaFinale);
 });
+
+//promise
+function myPromise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("la promise è stata risolta dopo 2 secondi");
+        }, 2000);
+    });
+}
+//chiamata alla funzione e gestione con then
+myPromise().then((message) => {
+    console.log(message);
+});
