@@ -10,3 +10,16 @@ function stampaRisultato(risultato) {
 }
 
 sommaEseguiCallback(2, 3, stampaRisultato);
+
+//passaggio di parametri
+function operazioneEseguiCallback(a, b, callback) {
+    let risultato2 = a - b;
+
+    callback(risultato2);
+}
+
+function stampaRisultatoSottrazione(risultato) {
+    console.log("il risultato dell'operazione è:", risultato);
+}
+
+operazioneEseguiCallback(10, 7, stampaRisultatoSottrazione);
