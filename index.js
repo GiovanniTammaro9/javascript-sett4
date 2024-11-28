@@ -49,11 +49,20 @@ somma(5, 5, function(risultatosomma) {
 function myPromise() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve("la promise è stata risolta dopo 2 secondi");
+            const success = false; 
+            if (success) {
+                resolve("la promise è stata risolta dopo 2 secondi");
+            }else {
+                reject("si è verificato un errore durante l'esecuzione");
+            }
+            
         }, 2000);
     });
 }
 //chiamata alla funzione e gestione con then
 myPromise().then((message) => {
     console.log(message);
+})
+.catch((error) => {
+    console.error(error);
 });
