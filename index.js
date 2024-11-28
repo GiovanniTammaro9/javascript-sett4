@@ -66,3 +66,28 @@ myPromise().then((message) => {
 .catch((error) => {
     console.error(error);
 });
+
+//promise con finally
+function myFunction() {
+    return new Promise((resolve, reject) => {
+        const success = true;
+        setTimeout(() => {
+            if(success) {
+                resolve("promise risolta con successo!");
+            }else {
+                reject("errore nella promise");
+            }
+        }, 1000);
+    })
+    .finally(() => {
+        console.log("azione eseguita nel blocco finally");
+    });
+}
+
+myFunction()
+.then(result => {
+    console.log(result);
+})
+.catch(error => {
+    console.log(error);
+});
