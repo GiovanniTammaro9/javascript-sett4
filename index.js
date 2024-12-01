@@ -160,3 +160,13 @@ promiseCasuale()
 .catch((errore) => {
     console.error("errore:", errore);
 });
+//promise rifiutata
+function esempioPromiseRifiutata() {
+    return new Promise ((_, reject) => {
+        reject("si è verificato un errore");
+    });
+}
+esempioPromiseRifiutata()
+.catch((errore) => {
+    console.log("errore", errore);
+});
