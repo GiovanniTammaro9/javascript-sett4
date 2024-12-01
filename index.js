@@ -138,3 +138,25 @@ verificaPariODispari(5)
 .catch((errore) => {
     console.error(`si è verificato un errore: ${errore}`);
 })
+//catena di promise con gestione di errori
+function promiseCasuale() {
+    return new Promise((resolve, reject) => {
+        const valoreCasuale = Math.random();
+        if (valoreCasuale > 0.5) {
+            resolve("la promise è stata risolta con successo!");
+        }else {
+            reject("la promessa è stata rifiutata");
+        }
+    });
+}
+promiseCasuale()
+.then((risultato6) => {
+    console.log(risultato6);
+    return "manipolazione successiva del risultato:" + risultato6;
+})
+.then((manipolazione) => {
+    console.log(manipolazione);
+})
+.catch((errore) => {
+    console.error("errore:", errore);
+});
