@@ -196,5 +196,34 @@ gestisciPromise(false)
 .catch((error) => {
     console.log("error", error);
 })
+//gestione degli errori in una catena di promesse
+function promiseCasual() {
+    return new Promise((resolve, reject) => {
+        const successo2 = Math.random() > 0.5;
+        if(successo2) {
+            resolve("la promise è stata risolta con successo");
+        }else {
+            reject("si è verificato un errore casuale");
+        }
+    });
+}
+
+promiseCasual()
+.then((risultato7) => {
+    console.log(risultato7);
+    return promiseCasual();
+})
+.then((risultato7) => {
+    console.log(risultato7);
+    return promiseCasual();
+})
+.then((risultato7) => {
+    console.log(risultato7);
+    
+})
+.catch((errore) => {
+    console.error("errore", errore);
+});
+
 
 
