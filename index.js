@@ -113,3 +113,28 @@ mynewFunction()
 .then(finalresult => {
     console.log("numero finale:", finalresult);
 });
+// promesse con condizioni 
+function verificaPariODispari(numero) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(numero);
+        }, 1000);
+    });
+}
+
+verificaPariODispari(5)
+.then((numero) => {
+    if (numero % 2 === 0) {
+        console.log(`${numero} è pari`);
+        return numero * 2;
+    }else {
+        console.log(`${numero} è dispari`);
+        return numero - 3;
+    }
+})
+.then((risultato5) => {
+    console.log(`il risultato manipolato è: ${risultato5}`);
+})
+.catch((errore) => {
+    console.error(`si è verificato un errore: ${errore}`);
+})
