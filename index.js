@@ -170,3 +170,31 @@ esempioPromiseRifiutata()
 .catch((errore) => {
     console.log("errore", errore);
 });
+//gestire la promise con then e catch
+function gestisciPromise(successo) {
+    return new Promise((resolve, reject) => {
+        if (successo) {
+            resolve("operazione riuscita");
+        }else {
+            reject("si è verificato un errore");
+        }
+    });
+}
+
+gestisciPromise(true)
+.then((messaggio) => {
+    console.log("successo:", messaggio);
+})
+.catch((errore) => {
+    console.log("errore", errore);
+});
+
+gestisciPromise(false)
+.then((messaggio) => {
+    console.log("successo", messaggio);
+})
+.catch((error) => {
+    console.log("error", error);
+})
+
+
